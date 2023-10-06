@@ -4,11 +4,11 @@ class Database {
   constructor() {
     //this.Url = "mongodb://localhost:27017/notaty";
    // this.Url="mongodb+srv://rouayouneb0:WLqfEpL7asAqNmPr@cluster0.d6ro5s4.mongodb.net/notaty?retryWrites=true&w=majority"
-   this.Url=process.env.MONGODB_URL||"mongodb+srv://rouayouneb0:WLqfEpL7asAqNmPr@cluster0.h3aqahv.mongodb.net/notaty?retryWrites=true&w=majority"
+
+   this.Url=process.env.MONGODB_URL||"mongodb+srv://rouayouneb0:FWbPViITT7NUQfCk@cluster0.h3aqahv.mongodb.net/notaty?retryWrites=true&w=majority"
   }
   connect() {
-    mongoose
-      .connect(this.Url, { useNewUrlParser: true, useUnifiedTopology: true })
+    mongoose.connect(this.Url, { useNewUrlParser: true, useUnifiedTopology: true })
       .then(() => {
         console.log("Database connected successfully.");
       })

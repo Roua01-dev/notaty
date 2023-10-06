@@ -1,11 +1,18 @@
 const express = require("express");
 const cors = require("cors");
 const bodyParser = require("body-parser");
-
+const serverless=require('serverless-http');
 const app = express();
 const Database = require("./Database");
 const db = new Database();
 
+const serverlessApp = serverless(app);
+
+// Export the serverless app
+module.exports.handler = async (event, context) => {
+  // Forward the event and context to the serverless app
+  return await serverlessApp(event, context);
+};
 app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
